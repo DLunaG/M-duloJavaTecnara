@@ -6,7 +6,7 @@ public class Main {
 
         System.out.println(Suma.suma(2,3));
         System.out.println(Suma.suma(4));
-        System.out.println(Suma.suma(2,3,4));
+        System.out.println(Suma.suma(2,3,5));
 
     }
 }
