@@ -1,6 +1,7 @@
 package dia2.ejercicioCoches.coches;
 
-public class CitroenXsara extends Coche{
+
+public class CitroenXsara extends Coche {
 
     public CitroenXsara(int cv, String color){
         super("Citröen", "Xsara", cv, color);

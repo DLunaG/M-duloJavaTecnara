@@ -1,9 +1,6 @@
 package dia2.ejercicioCoches;
 
-import dia2.ejercicioCoches.coches.CitroenXsara;
-import dia2.ejercicioCoches.coches.Coche;
-import dia2.ejercicioCoches.coches.Renault4CV;
-import dia2.ejercicioCoches.coches.RenaultClio;
+import dia2.ejercicioCoches.coches.*;
 
 public class Main {
 
@@ -43,5 +40,18 @@ public class Main {
         clio.arrancar();
         clio.conducir();
         clio.apagar();
+
+        System.out.println();
+        TombolaCoches tombola = new TombolaCoches();
+        Coche coche = tombola.sortearCoche();
+        coche.iniciarReproduccion();
+        coche.detenerReproduccion();
+        System.out.println(coche.getModelo());
+        coche.arrancar();
+
+        System.out.println();
+        IMusicable coche2 = tombola.sortearCoche();
+        coche2.iniciarReproduccion();
+
     }
 }

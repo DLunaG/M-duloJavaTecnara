@@ -1,7 +1,9 @@
 package dia2.ejercicioCoches.coches;
 
+import dia2.ejercicioCoches.IMusicable;
+
 //al apagar, comprobar que está parado
-public abstract class Coche {
+public abstract class Coche implements IMusicable {
 
     private String marca;
     private String modelo;
@@ -48,6 +50,16 @@ public abstract class Coche {
             this.velocidad--;
             System.out.println("El coche va a " + velocidad + "km/h.");
         }
+    }
+
+    @Override
+    public void iniciarReproduccion() {
+        System.out.println("Sonando música ♫♫");
+    }
+
+    @Override
+    public void detenerReproduccion() {
+        System.out.println("Música apagada.");
     }
 
 
