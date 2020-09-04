@@ -1,0 +1,4 @@
+3 animales(tortuga, león, águila)
+todos los animales pueden realizar un show
+cada animal realiza su propio show
+un componente zoo que se dedique a realizar shows con animales
