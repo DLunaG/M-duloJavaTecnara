@@ -2,3 +2,12 @@
 todos los animales pueden realizar un show
 cada animal realiza su propio show
 un componente zoo que se dedique a realizar shows con animales
+
+2ºparte:
+Dentro del zoo, voy a tener un acuario. Al cuario pasarán aquellos animales que puedan nadar.
+Mi zoo va a aumentar su numero de animales y voy a tener:
+- Delfín
+- Papagayo
+- Ballena
+- Gato
+Este compoenente acuario, que pertenece a Zoo, va a realizar shows con animales (exclusivamente) que sepan nadar.
