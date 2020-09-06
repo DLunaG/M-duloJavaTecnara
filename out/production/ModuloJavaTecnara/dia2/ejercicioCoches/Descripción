@@ -1,0 +1,9 @@
+Añadido ejercicio Coches (03/09/20)
+                        Se practica la herencia, abstracción e interfaz.
+                        Métodos generales (en padre) y métodos compartidos pero específicos (en hijas [abstractas])
+                        Clase padre: Coche
+                        Clases hijas: CitroenXsara
+                                      RenaultClio
+                                      Renault4CV
+                        Interfaz : IMusicable
+                        Clase random: TombolaCoches

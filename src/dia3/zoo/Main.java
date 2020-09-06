@@ -5,6 +5,8 @@ import dia3.zoo.animales.*;
 import dia3.zoo.componentes.ShowAquariumComponents;
 import dia3.zoo.componentes.ShowZooComponents;
 
+import java.io.IOException;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -24,10 +26,16 @@ public class Main {
         show.doAShow(ballena, delfin);
         show.doAShow(gato, papagayo);
 
+
+        show.prepareAndPerformanceAShow();
+
+
         ShowAquariumComponents aquariumShow = new ShowAquariumComponents();
 
         aquariumShow.doAShow(delfin);
         aquariumShow.doAShow(ballena);
+
+
     }
 
 
