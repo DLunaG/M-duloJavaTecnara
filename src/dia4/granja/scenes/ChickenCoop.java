@@ -1,7 +1,6 @@
 package dia4.granja.scenes;
 
-import dia4.granja.animals.Bird;
-import dia4.granja.animals.*;
+import dia4.granja.animals.birdAnimals.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,26 +8,22 @@ import java.util.Random;
 
 public class ChickenCoop {
 
-    private int eggs;
     protected List<Bird> birdsList = new ArrayList<Bird>();
-    private int numberOfChickens;
-    private int numberOfTurkeys;
 
     public String addBird(Bird bird){
-        if(bird instanceof Chicken){
-            numberOfChickens++;
-            eggs++;
+        if(bird.isAlive()) {
+            birdsList.add(bird);
+            return bird.getName() + " has been introduced.";
         }else{
-            numberOfTurkeys++;
+            return "This bird had been slaughtered.";
         }
-        birdsList.add(bird);
-        return bird + " has been introduced.";
     }
 
 
     public String takeEggs(int eggsToTake){
-        if(eggsToTake > this.eggs){
-            return "You have only been able to collect " + this.eggs + " eggs.";
+        int eggs = calculateEggs();
+        if(eggsToTake > eggs){
+            return "You have only been able to collect " + eggs + " eggs.";
         }else{
             return "You have collected " + eggsToTake + " eggs.";
         }
@@ -42,4 +37,40 @@ public class ChickenCoop {
         return birdToSacriface;
     }
 
+    public int getNumberOfChickens(){
+        int numberOfChickens = 0;
+        for (Bird x : birdsList){
+            if(x instanceof Chicken){
+                numberOfChickens++;
+            }
+        }
+        return numberOfChickens;
+    }
+
+    public int getNumberOfTurkeys(){
+        int numberOfTurkeys = 0;
+        for (Bird x : birdsList){
+            if(x instanceof Turkey){
+                numberOfTurkeys++;
+            }
+        }
+        return numberOfTurkeys;
+    }
+
+    public int getNumberOfBirds(){
+        return getNumberOfChickens() + getNumberOfTurkeys();
+    }
+
+    public String getChickenCoopMembers(){
+        StringBuilder sb = new StringBuilder("The chicken coop have :\n");
+        sb.append(getNumberOfChickens());
+        sb.append(" chickens and ");
+        sb.append(getNumberOfTurkeys());
+        sb.append(" turkeys.");
+        return sb.toString();
+    }
+
+    private int calculateEggs(){
+        return getNumberOfChickens()*2;
+    }
 }

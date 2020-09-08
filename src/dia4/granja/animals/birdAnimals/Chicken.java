@@ -1,8 +1,8 @@
-package dia4.granja.animals;
+package dia4.granja.animals.birdAnimals;
 
 public class Chicken extends Bird {
 
     public Chicken(String name){
-        super(name);
+        super(name, "Chicken");
     }
 }

@@ -1,8 +1,8 @@
-package dia4.granja.animals;
+package dia4.granja.animals.stableAnimals;
 
 public class Cow extends StableAnimal {
 
     public Cow(String name){
-        super(name);
+        super(name, "Cow");
     }
 }
