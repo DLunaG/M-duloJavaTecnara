@@ -37,6 +37,7 @@ public class ChickenCoop {
         birdsList.remove(randomBird);
         return birdToSacriface;
     }
+
     public String carryToFold(IFoldable animal, Fold fold){
         birdsList.remove(animal);
         System.out.println("Pitas pitas pitas " + animal.getName() + ".");

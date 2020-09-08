@@ -15,7 +15,7 @@ public class Stable {
     List<StableAnimal> animalList = new ArrayList<StableAnimal>();
 
     public String addStableAnimal(StableAnimal animal) {
-        if (animalList.size() == MAX_ANIMALS) {
+        if (stableIsFull()) {
             return "The stable is full. You can't introduce more StableAnimals in this stable.";
         } else {
             animalList.add(animal);
@@ -69,6 +69,14 @@ public class Stable {
             }
         }
         return numberOfOxes;
+    }
+
+    public boolean stableIsFull(){
+        if(animalList.size() == 5){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
 

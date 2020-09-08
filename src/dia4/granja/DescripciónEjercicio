@@ -16,12 +16,12 @@ enunciado del nuevo ejercicio:
 Ampliación del ejercicio de la granja:
 
 -Ahora en la granja, va a haber un redil.
-Este redil, puede pastorear vacas y gallinas.
+-Este redil, puede pastorear vacas y gallinas.
 -Cuando una vaca o una gallina están en el redil, no están en el establo o en el gallinero, respectivamente.
-El granjero va a ser el encargado de llevar los animales del establo/gallinero al redil y viceversa.
-Cuando traslade a los animales, debe decir una frase para tranquilizarlos, con el nombre de los animales.
-En el establo sólo caben 5 animales, recordémoslo.
-El redil tiene que ser capaz de mostrar cuántos animales tiene de cada tipo y en total.
+-El granjero va a ser el encargado de llevar los animales del establo/gallinero al redil y viceversa.
+-Cuando traslade a los animales, debe decir una frase para tranquilizarlos, con el nombre de los animales.
+-En el establo sólo caben 5 animales, recordémoslo.
+-El redil tiene que ser capaz de mostrar cuántos animales tiene de cada tipo y en total.
 Se requiere actualizar el diagrama de clases completo (clase, atributos, métodos y relaciones) e implementar el código.
-Cuando una vaca o gallina está en el redil, puede ser pastoreado (aka "Hola, soy un tipo de animal, me llamo --- y me están pastoreando")
-El redil, debe poder pastorear (pastor automático) a todos sus animales
+-Cuando una vaca o gallina está en el redil, puede ser pastoreado (aka "Hola, soy un tipo de animal, me llamo --- y me están pastoreando")
+-El redil, debe poder pastorear (pastor automático) a todos sus animales
