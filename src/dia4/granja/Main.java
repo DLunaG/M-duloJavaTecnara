@@ -49,6 +49,23 @@ public class Main {
         System.out.println(farfalda.isAlive());
         System.out.println(farm.chickenCopp.addBird(farfalda));
 
+        System.out.println();
+        System.out.println();
+
+        Chicken rosa = new Chicken("Rosa");
+        Cow florentino = new Cow("Florentino");
+        Cow sancha = new Cow("Sancha");
+
+        System.out.println(farm.stable2.addStableAnimal(florentino));
+        System.out.println(farm.stable2.addStableAnimal(sancha));
+        System.out.println(farm.stable2.carryToFold(florentino, farm.fold));
+        System.out.println(farm.stable2.getStableMembers());
+        System.out.println(farm.fold.getFoldMembers());
+        System.out.println(farm.chickenCopp.addBird(rosa));
+        System.out.println(farm.chickenCopp.carryToFold(rosa, farm.fold));
+        System.out.println(farm.stable2.carryToFold(sancha, farm.fold));
+        System.out.println(farm.fold.getFoldMembers());
+
 
     }
 }

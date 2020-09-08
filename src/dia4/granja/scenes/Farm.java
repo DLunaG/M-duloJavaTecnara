@@ -9,6 +9,7 @@ public class Farm {
     public Stable stable2 = new Stable();
     public Stable stable3 = new Stable();
     public SlaughterHouse slaughterHouse = new SlaughterHouse();
+    public Fold fold = new Fold();
 
 
 }

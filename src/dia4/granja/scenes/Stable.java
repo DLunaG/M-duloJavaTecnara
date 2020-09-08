@@ -1,8 +1,10 @@
 package dia4.granja.scenes;
 
 
+import dia4.granja.animals.Animal;
 import dia4.granja.animals.stableAnimals.Cow;
 import dia4.granja.animals.stableAnimals.StableAnimal;
+import dia4.granja.interfaces.IFoldable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +21,12 @@ public class Stable {
             animalList.add(animal);
             return animal.getName() + " has been introduced.";
         }
+    }
+
+    public String carryToFold(IFoldable animal, Fold fold){
+        animalList.remove(animal);
+        System.out.println("C'mooooon " + animal.getName() + ".");
+        return fold.addFoldableAnimal(animal);
     }
 
     public String getStableMembers() {
