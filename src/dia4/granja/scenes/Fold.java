@@ -1,11 +1,8 @@
 package dia4.granja.scenes;
 
-import dia4.granja.animals.birdAnimals.Bird;
 import dia4.granja.animals.birdAnimals.Chicken;
 import dia4.granja.animals.stableAnimals.Cow;
-import dia4.granja.animals.stableAnimals.StableAnimal;
 import dia4.granja.interfaces.IFoldable;
-
 import java.util.ArrayList;
 import java.util.List;
 

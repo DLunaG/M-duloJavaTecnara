@@ -10,6 +10,7 @@ import dia4.granja.scenes.Stable;
 public class Farmer {
 
     public String carryStableAnimalToFold(Stable stable, IFoldable animal, Fold fold) {
+        //if animal instanceof StableAnimal
         if (stable.isInStable((StableAnimal) animal)) {
             stable.getOutFromStable((StableAnimal) animal);
             System.out.println("C'mooooon " + animal.getName() + ".");
@@ -20,6 +21,7 @@ public class Farmer {
     }
 
     public String carryBirdToFold(ChickenCoop chickenCoop, IFoldable animal, Fold fold) {
+        //if animal instanceof Bird
         if (chickenCoop.isInChickenCoop((Bird) animal)) {
             chickenCoop.getOutFromChickenCoop((Bird) animal);
             System.out.println("Pitas pitas pitas " + animal.getName() + ".");
