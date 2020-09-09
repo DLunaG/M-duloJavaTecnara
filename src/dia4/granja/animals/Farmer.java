@@ -10,25 +10,29 @@ import dia4.granja.scenes.Stable;
 public class Farmer {
 
     public String carryStableAnimalToFold(Stable stable, IFoldable animal, Fold fold) {
-        //if animal instanceof StableAnimal
-        if (stable.isInStable((StableAnimal) animal)) {
-            stable.getOutFromStable((StableAnimal) animal);
-            System.out.println("C'mooooon " + animal.getName() + ".");
-            return fold.addFoldableAnimal(animal);
-        } else {
-            return "This animal is not in the Stable.";
+        if (animal instanceof StableAnimal) {
+            if (stable.isInStable((StableAnimal) animal)) {
+                stable.getOutFromStable((StableAnimal) animal);
+                System.out.println("C'mooooon " + animal.getName() + ".");
+                return fold.addFoldableAnimal(animal);
+            } else {
+                return "This animal is not in the Stable.";
+            }
         }
+        return "This animal can't be in stable!.";
     }
 
     public String carryBirdToFold(ChickenCoop chickenCoop, IFoldable animal, Fold fold) {
-        //if animal instanceof Bird
-        if (chickenCoop.isInChickenCoop((Bird) animal)) {
-            chickenCoop.getOutFromChickenCoop((Bird) animal);
-            System.out.println("Pitas pitas pitas " + animal.getName() + ".");
-            return fold.addFoldableAnimal(animal);
-        } else {
-            return "This animal is not in the Stable.";
+        if (animal instanceof Bird) {
+            if (chickenCoop.isInChickenCoop((Bird) animal)) {
+                chickenCoop.getOutFromChickenCoop((Bird) animal);
+                System.out.println("Pitas pitas pitas " + animal.getName() + ".");
+                return fold.addFoldableAnimal(animal);
+            } else {
+                return "This animal is not in the Stable.";
+            }
         }
+        return "This animal can't be in chicken coop.";
     }
 
     public String carryBirdFromFoldToChickenCoop(ChickenCoop chickenCoop, IFoldable animal, Fold fold){
