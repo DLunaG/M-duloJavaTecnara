@@ -23,11 +23,10 @@ public class Stable {
         }
     }
 
-    public String carryToFold(IFoldable animal, Fold fold){
+    public void getOutFromStable(StableAnimal animal){
         animalList.remove(animal);
-        System.out.println("C'mooooon " + animal.getName() + ".");
-        return fold.addFoldableAnimal(animal);
     }
+
 
     public String getStableMembers() {
         StringBuilder sb = new StringBuilder("These are the animals in the stable: \n");
@@ -77,6 +76,15 @@ public class Stable {
         }else{
             return false;
         }
+    }
+
+    public boolean isInStable(StableAnimal animal){
+        for (StableAnimal a: animalList){
+            if(a == animal){
+                return true;
+            }
+        }
+        return false;
     }
 }
 

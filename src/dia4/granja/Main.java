@@ -50,7 +50,7 @@ public class Main {
         System.out.println(farm.chickenCopp.addBird(farfalda));
 
         System.out.println();
-        System.out.println();
+        System.out.println("=========================================================================");
 
         Chicken rosa = new Chicken("Rosa");
         Cow florentino = new Cow("Florentino");
@@ -58,26 +58,33 @@ public class Main {
 
         System.out.println(farm.stable2.addStableAnimal(florentino));
         System.out.println(farm.stable2.addStableAnimal(sancha));
-        System.out.println(farm.stable2.carryToFold(florentino, farm.fold));
+        System.out.println(farm.farmer.carryStableAnimalToFold(farm.stable2, florentino, farm.fold));
         System.out.println(farm.stable2.getStableMembers());
         System.out.println(farm.fold.getFoldMembers());
         System.out.println(farm.chickenCopp.addBird(rosa));
-        System.out.println(farm.chickenCopp.carryToFold(rosa, farm.fold));
-        System.out.println(farm.stable2.carryToFold(sancha, farm.fold));
+        System.out.println(farm.farmer.carryBirdToFold(farm.chickenCopp, rosa, farm.fold));
+        System.out.println(farm.farmer.carryStableAnimalToFold(farm.stable1, sancha, farm.fold));
         System.out.println(farm.fold.getFoldMembers());
-        System.out.println(farm.fold.carryToChickenCoop(rosa, farm.chickenCopp));
+        System.out.println(farm.farmer.carryBirdFromFoldToChickenCoop(farm.chickenCopp, rosa, farm.fold));
         System.out.println(farm.chickenCopp.getChickenCoopMembers());
         System.out.println(farm.fold.getFoldMembers());
-        System.out.println(farm.fold.carryToStable(florentino, farm.stable1));
-        System.out.println(farm.fold.carryToStable(sancha, farm.stable2));
+        System.out.println(farm.farmer.carryStableAnimalToFold(farm.stable1, florentino, farm.fold));
+        System.out.println(farm.farmer.carryStableAnimalFromFoldToStable(farm.stable2, sancha, farm.fold));
+
+        System.out.println("============================================================================");
+
         System.out.println(farm.fold.getFoldMembers());
         System.out.println(farm.stable2.getStableMembers());
-        System.out.println(farm.fold.pastureAnimal(sancha));
-        System.out.println(farm.fold.pastureAnimal(florentino));
-        System.out.println(farm.stable2.carryToFold(sancha, farm.fold));
-        System.out.println(farm.chickenCopp.carryToFold(rosa, farm.fold));
+        System.out.println(farm.farmer.pastureAnimal(sancha));
+        System.out.println(farm.farmer.pastureAnimal(florentino));
+        System.out.println(farm.farmer.carryStableAnimalToFold(farm.stable2, sancha, farm.fold));
+        System.out.println(farm.farmer.carryBirdToFold(farm.chickenCopp, rosa, farm.fold));
         System.out.println(farm.fold.getFoldMembers());
+        System.out.println("Automatic Pasture: ");
         System.out.println(farm.fold.automaticPasture());
+        System.out.println(farm.farmer.carryStableAnimalFromFoldToStable(farm.stable2,sancha,farm.fold));
+        System.out.println(farm.fold.automaticPasture());
+
 
 
     }

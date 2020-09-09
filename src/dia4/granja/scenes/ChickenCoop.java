@@ -1,5 +1,6 @@
 package dia4.granja.scenes;
 
+import dia4.granja.animals.Animal;
 import dia4.granja.animals.birdAnimals.*;
 import dia4.granja.interfaces.IFoldable;
 
@@ -20,6 +21,9 @@ public class ChickenCoop {
         }
     }
 
+    public void getOutFromChickenCoop(Bird bird){
+        birdsList.remove(bird);
+    }
 
     public String takeEggs(int eggsToTake){
         int eggs = calculateEggs();
@@ -37,13 +41,6 @@ public class ChickenCoop {
         birdsList.remove(randomBird);
         return birdToSacriface;
     }
-
-    public String carryToFold(IFoldable animal, Fold fold){
-        birdsList.remove(animal);
-        System.out.println("Pitas pitas pitas " + animal.getName() + ".");
-        return fold.addFoldableAnimal(animal);
-    }
-
 
     public int getNumberOfChickens(){
         int numberOfChickens = 0;
@@ -80,5 +77,14 @@ public class ChickenCoop {
 
     private int calculateEggs(){
         return getNumberOfChickens()*2;
+    }
+
+    public boolean isInChickenCoop(Bird bird){
+        for (Bird a: birdsList){
+            if(a == bird){
+                return true;
+            }
+        }
+        return false;
     }
 }

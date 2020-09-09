@@ -15,45 +15,20 @@ public class Fold {
 
     public String addFoldableAnimal(IFoldable animal){
         foldList.add(animal);
+        animal.setIsInFold(true);
         return animal.getName() + " has arrived to Fold.";
     }
 
-    public String pastureAnimal(IFoldable animal){
-        if(!isInTheFold(animal)){
-            return "This animal is not in the fold!";
-        }else {
-            StringBuilder sb = new StringBuilder("Hi! I'm a ");
-            sb.append(animal.getClass().getSimpleName());
-            sb.append(", my name is ");
-            sb.append(animal.getName());
-            sb.append(" and I'm being pastured :D");
-            return sb.toString();
-        }
+    public void removeFoldableAnimal(IFoldable animal){
+        foldList.remove(animal);
+        animal.setIsInFold(false);
     }
 
     public String automaticPasture(){
         for (IFoldable animal : foldList){
-            System.out.println(pastureAnimal(animal));
+            System.out.println(animal.pasture());
         }
         return "All animals have been pastured.";
-    }
-
-    public String carryToChickenCoop(Bird bird, ChickenCoop chickenCoop){
-        System.out.println("C'mon " + bird.getName() + ". Pitas pitas pitas.");
-        chickenCoop.addBird(bird);
-        foldList.remove(bird);
-        return bird.getName() + " carried to ChickenCoop.";
-    }
-
-    public String carryToStable(StableAnimal animal, Stable stable){
-        if(stable.stableIsFull()){
-            return "This stable is full!";
-        }else {
-            System.out.println("C'mon Mr./Ms." + animal.getName() + ".");
-            stable.addStableAnimal(animal);
-            foldList.remove(animal);
-            return animal.getName() + " carried to ChickenCoop.";
-        }
     }
 
     public String getFoldMembers(){
@@ -100,14 +75,4 @@ public class Fold {
         }
         return numberOfChickens;
     }
-
-    public boolean isInTheFold(IFoldable animal){
-        for(IFoldable x: foldList){
-            if (x == animal){
-                return true;
-            }
-        }
-        return false;
-    }
-
 }
