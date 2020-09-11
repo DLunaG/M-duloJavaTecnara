@@ -10,5 +10,13 @@ public class Main {
 
         System.out.println(cadena);
 
+        String conductor = "B";//10
+        String vehiculo = "C";//11
+
+        System.out.println(conductor.compareTo(vehiculo));
+
+
+
+
     }
 }

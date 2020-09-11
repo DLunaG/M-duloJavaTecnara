@@ -1,0 +1,13 @@
+FLOTA DE CAMIONES.
+-Camion se conduce con carnet C
+-Trailer carnet D
+-Camion articulado carnet D
+-Camioneta carnet B
+-Furgoneta carnet B
+-Conductor con carnet B/C/D
+-Los camiones pueden realizar rutas
+-Un camión inicia una ruta si su conductor tiene el carnet apropiado
+-Una ruta tiene diferentes paradas.
+-En cada parada el conductor deja un paquete e informa de que lo ha dejado con un system.out.println e indica qué paquete era
+-Cada vehiculo tiene un numero maximo de paquetes y están almacenados en su interior.
+-Cuando los paquetes se entregan, desaparecen del camión.
