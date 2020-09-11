@@ -1,0 +1,15 @@
+Vamos a tener un jardín!
+En un jardín tengo flores. Muchas flores!
+Tengo Gardenias, Violetas y Geranios.
+Todas las flores se pueden regar (devolver mensaje "me están regando") y además florecen (devolver mensaje como que ha florecido).
+Además, las gardenias sueltan polen (devolver mensaje suelto polen) y las violetas sueltan abejas (devolver mensaje suelto abejas).
+Se pide: Realizar el diagrama de clases.
+Implementar el diagrama de clases.
+Implementar una clase main donde se cree un jardín con flores.
+Se puede, siempre desde el jardín:
+- añadir flores al jardin
+- eliminar flores del jardin,
+- regar flores
+- ver florecer flores
+- ver las gardenias soltar polen
+- ver las violetas soltar abejas
