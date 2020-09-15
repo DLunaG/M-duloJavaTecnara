@@ -15,6 +15,19 @@ public class Main {
 
         System.out.println(conductor.compareTo(vehiculo));
 
+        int[][] matrix = new int[2][3];
+        int x = 1;
+        for (int i = 0; i < matrix.length; i++) {
+            System.out.println();
+            for (int j = 0; j < matrix[i].length; j++) {
+                matrix[i][j]= x;
+                System.out.print(x);
+                x++;
+            }
+        }
+
+
+
 
 
 
