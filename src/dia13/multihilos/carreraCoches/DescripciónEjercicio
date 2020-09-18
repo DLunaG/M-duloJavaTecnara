@@ -1,0 +1,8 @@
+-Diseñar el diagrama de clases
+-Diferentes coches.
+-Cada coche va a tener una velocidad de km/h
+-Voy a tener un circuito, que tendrá una lista de coches y una longitud
+-El circuito podrá realizar carreras de coches, dará una salida y tendrá una llegada.
+-Cuando la carrera termina, se muestra la posición de los coches.
+-Se pide instanciar un circuito, una serie de coches y hacerlos correr en
+    el circuito y que después se muestre por pantalla la posición de cada coche.
