@@ -28,6 +28,22 @@ public class Circuito {
         listaPosicionCarrera.add(coche);
     }
 
+
+    //método creado por clase.
+    public String posicionesCarrera2() {
+        CocheComparador cc = new CocheComparador();
+        listaCoches.sort(cc);
+
+        StringBuilder sb = new StringBuilder();
+        int posicion = 1;
+        for (Coche coche : listaCoches) {
+            sb.append(coche.getNameCar() + " posición " + posicion + ". Costándole " + coche.getTiempoMedidoDeCarrera() + "s en recorrer el circuito.\n");
+            posicion++;
+        }
+        return sb.toString();
+
+    }
+
     public String resultadoCarrera(){
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < listaPosicionCarrera.size(); i++) {
@@ -35,6 +51,7 @@ public class Circuito {
         }
         return sb.toString();
     }
+
 
 
     public int getLongitud() {

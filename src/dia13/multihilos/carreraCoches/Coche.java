@@ -4,6 +4,7 @@ public class Coche extends Thread {
     private float velocidad;
     private String name;
     private Circuito circuito;
+    private long tiempoMedidoDeCarrera;
 
     public Coche(float velocidad, String name){
         this.velocidad = velocidad;
@@ -14,7 +15,8 @@ public class Coche extends Thread {
     @Override
     public void run() {
         if(circuito != null) {
-            float tiempoRecorrido = circuito.getLongitud() / velocidad * 60 * 1000;
+            long tiempoInicial = System.currentTimeMillis();
+            float tiempoRecorrido = calculoTiempoRecorrido();
             try {
                 this.join((int) tiempoRecorrido);
             } catch (InterruptedException e) {
@@ -22,10 +24,17 @@ public class Coche extends Thread {
             }
 
             System.out.println(name + " cruzó la meta.");
+            long tiempoFinal = System.currentTimeMillis();
+            tiempoMedidoDeCarrera = tiempoFinal - tiempoInicial;
             circuito.posicionCruzandoMeta(this);
+
         }else{
             System.out.println("Este coche no está en ningún circuito.");
         }
+    }
+
+    public float calculoTiempoRecorrido(){
+        return circuito.getLongitud() / velocidad * 60 * 1000;
     }
 
     public float getVelocidad() {
@@ -38,6 +47,10 @@ public class Coche extends Thread {
 
     public Circuito getCircuito() {
         return circuito;
+    }
+
+    public long getTiempoMedidoDeCarrera() {
+        return tiempoMedidoDeCarrera;
     }
 
     public void setCircuito(Circuito circuito) {
