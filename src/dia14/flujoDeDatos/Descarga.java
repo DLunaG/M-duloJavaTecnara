@@ -7,7 +7,7 @@ import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
 
-public class Descarga {
+public class Descarga extends Thread {
     private String url;
     private String archivo;
     private String nombrePortal;
@@ -18,15 +18,18 @@ public class Descarga {
         this.url = url;
         this.archivo = archivo;
         this.nombrePortal = nombrePortal;
-        this.tiempoExcedido = false;
+    }
+
+    @Override
+    public void run() {
+        long tiempoInicial = System.currentTimeMillis();
         descargarArchivo();
-        comprobarTiempoDeDescarga();
+        this.tiempoDeDescarga = System.currentTimeMillis() - tiempoInicial;
+        comprobarExcesoTiempoDeDescarga();
     }
 
     private void descargarArchivo() {
-
         ReadableByteChannel readableByteChannel;
-        long tiempoInicial = System.currentTimeMillis();
         {
             try {
                 readableByteChannel = Channels.newChannel(new URL(this.url).openStream());
@@ -37,17 +40,16 @@ public class Descarga {
                 e.printStackTrace();
             }
         }
-        long tiempoFinalizacion = System.currentTimeMillis();
-        this.tiempoDeDescarga = tiempoFinalizacion - tiempoInicial;
     }
 
-    private void comprobarTiempoDeDescarga(){
+    private void comprobarExcesoTiempoDeDescarga(){
         if (tiempoDeDescarga > 5000) {
             tiempoExcedido = true;
         }
     }
 
 
+    //GETTERS
     public String getNombrePortal() {
         return nombrePortal;
     }

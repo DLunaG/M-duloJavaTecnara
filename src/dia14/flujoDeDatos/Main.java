@@ -24,6 +24,8 @@ public class Main {
 
     public static void main(String[] args) {
 
+        long tiempoInicio = System.currentTimeMillis();
+
         Descarga descargaKernel = new Descarga("http://mirrors.kernel.org/ubuntu/pool/main/m/mysql-5.7/mysql-server-5.7_5.7.31-0ubuntu0.16.04.1_amd64.deb", "pruebaDescargaKernel.deb", "Kernel");
         Descarga descargaOsuosl = new Descarga("http://ftp.osuosl.org/pub/ubuntu/pool/main/m/mysql-5.7/mysql-server-5.7_5.7.31-0ubuntu0.16.04.1_amd64.deb", "pruebaDescargaOsuosl.deb", "Osuosl");
         Descarga descargaZa = new Descarga("http://za.archive.ubuntu.com/ubuntu/pool/main/m/mysql-5.7/mysql-server-5.7_5.7.31-0ubuntu0.16.04.1_amd64.deb", "pruebaDescargaZa.deb", "Za.archive");
@@ -33,8 +35,12 @@ public class Main {
         listaDescargas.add(descargaOsuosl);
         listaDescargas.add(descargaZa);
 
-        OrdenDescargas ordenDescargas = new OrdenDescargas(listaDescargas);
-        System.out.println(ordenDescargas.resultadosOrdenacionTiempoDeDescarga());
+
+        GestorDescargas gestorDescargas = new GestorDescargas(listaDescargas);
+        gestorDescargas.realizarDescargas();
+        System.out.println(gestorDescargas.resultadosOrdenacionTiempoDeDescarga());
+
+        System.out.println("Finalización programa en " + (System.currentTimeMillis() - tiempoInicio) + " milisegundos.");
     }
 
 }

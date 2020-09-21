@@ -3,12 +3,25 @@ package dia14.flujoDeDatos;
 
 import java.util.List;
 
-public class OrdenDescargas {
+public class GestorDescargas {
 
     List<Descarga> listaDescargas;
 
-    public OrdenDescargas(List<Descarga> listaDescargas){
+    public GestorDescargas(List<Descarga> listaDescargas){
         this.listaDescargas = listaDescargas;
+    }
+
+    public void realizarDescargas(){
+        for (Descarga descarga: listaDescargas){
+            descarga.start();
+        }
+        for(Descarga descarga:listaDescargas){
+            try {
+                descarga.join();
+            }catch(InterruptedException ie){
+                System.out.println("InterruptedException: " + ie.toString());
+            }
+        }
     }
 
     public String resultadosOrdenacionTiempoDeDescarga(){
