@@ -1,0 +1,14 @@
+Aplicación cliente - servidor
+Cliente envía un mensaje al servidor.
+Servidor comprueba la sintaxis de ese mensaje.
+Si es correcta, devuelve un Ok.
+Si no es correcta, devuelve un KO y un ejemplo de cómo debería ser el mensaje
+Basta con una sola conexión, no es necesario mantener el servidor de sockets abierto.
+El mensaje es {farolaNumero:1, valor:10} donde farolaNumero y valor serán siempre valores enteros
+
+
+{farolaNumero:n, valor:10}
+
+{farolaNumero:1,5, valor:10}
+
+{farolaNumero:1.5, valor:10}
