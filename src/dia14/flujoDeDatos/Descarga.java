@@ -12,7 +12,7 @@ public class Descarga extends Thread {
     private String archivo;
     private String nombrePortal;
     private long tiempoDeDescarga;
-    private boolean tiempoExcedido;
+
 
     public Descarga(String url, String archivo, String nombrePortal) {
         this.url = url;
@@ -25,7 +25,7 @@ public class Descarga extends Thread {
         long tiempoInicial = System.currentTimeMillis();
         descargarArchivo();
         this.tiempoDeDescarga = System.currentTimeMillis() - tiempoInicial;
-        comprobarExcesoTiempoDeDescarga();
+
     }
 
     private void descargarArchivo() {
@@ -42,11 +42,6 @@ public class Descarga extends Thread {
         }
     }
 
-    private void comprobarExcesoTiempoDeDescarga(){
-        if (tiempoDeDescarga > 5000) {
-            tiempoExcedido = true;
-        }
-    }
 
 
     //GETTERS
@@ -55,8 +50,5 @@ public class Descarga extends Thread {
     }
     public long getTiempoDeDescarga() {
         return tiempoDeDescarga;
-    }
-    public boolean isTiempoExcedido() {
-        return tiempoExcedido;
     }
 }
