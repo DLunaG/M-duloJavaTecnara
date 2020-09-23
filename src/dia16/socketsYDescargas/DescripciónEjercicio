@@ -1,0 +1,7 @@
+Mapear en el servidor las 3 urls de descarga de nuestros ficheros
+
+http://mirrors.kernel.org/ubuntu/pool/main/m/mysql-5.7/mysql-server-5.7_5.7.31-0ubuntu0.16.04.1_amd64.deb
+http://ftp.osuosl.org/pub/ubuntu/pool/main/m/mysql-5.7/mysql-server-5.7_5.7.31-0ubuntu0.16.04.1_amd64.deb
+http://za.archive.ubuntu.com/ubuntu/pool/main/m/mysql-5.7/mysql-server-5.7_5.7.31-0ubuntu0.16.04.1_amd64.deb
+
+y que el cliente pase la que quiere descargar y se descargue desde el servidor y se le pase al cliente
