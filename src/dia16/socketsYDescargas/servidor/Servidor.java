@@ -24,10 +24,10 @@ public class Servidor {
 
 
 
-        FileInputStream fis=new FileInputStream("C:\\Users\\tecnara\\IdeaProjects\\ModuloJavaTecnara\\src\\dia16\\socketsYDescargas\\servidor\\" + str + ".deb");
+        //FileInputStream fis=new FileInputStream("C:\\Users\\tecnara\\IdeaProjects\\ModuloJavaTecnara\\src\\dia16\\socketsYDescargas\\servidor\\" + str + ".deb");
 
-        dos.write(fis.read());
-        System.out.println("Archivo enviado a cliente.");
+       // dos.write(fis.read());
+        //System.out.println("Archivo enviado a cliente.");
 
 
         din.close();
