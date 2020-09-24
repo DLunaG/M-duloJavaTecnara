@@ -24,7 +24,7 @@ public class Cliente {
 
         DataInputStream dis = new DataInputStream(s.getInputStream());
         FileOutputStream fos = new FileOutputStream("C:\\Users\\tecnara\\IdeaProjects\\ModuloJavaTecnara\\src\\dia16\\socketsYDescargas\\cliente\\" + fraseCliente + ".mp4");
-        //fos.write(dis.read());
+        //fos.write(dis.read());..
 
         try {
             ReadableByteChannel readableByteChannel = Channels.newChannel(dis);
