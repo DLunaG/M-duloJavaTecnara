@@ -1,0 +1,11 @@
+Enunciado del ejercicio:
+
+Se pide diseñar el diagrama de clases y de secuencia de una aplicación cliente-servidor que funcione de la siguiente manera:
+el cliente pide al servidor a través de un socket la información meteorológica de unas coordenadas dadas (x, y)
+que el cliente le facilita al servidor.
+El servidor va a estar escuchando coordenadas y cuando le llegue un par de coordenadas válido
+( si no, responderá con un mensaje de error),
+devolverá la información de fecha/hora, temperatura, si es de día o no y la velocidad del viento.
+Para ello, el servidor se conectará al API de openweathermap
+http://api.openweathermap.org/data/2.5/weather?lat=33.3&lon=139&appid=3e2d658a45d141292b9ac778c8b2dc32
+El cliente, mostrará un mensaje por pantalla con la información de fecha/hora, temperatura, si es de día o no y la velocidad del viento.
