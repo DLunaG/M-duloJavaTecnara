@@ -74,7 +74,7 @@ public class OpenweathermapResponse {
         sb.append(", ").append(this.getWeather().get(0).getDescription());
         sb.append("\",\n\"Temperature\":").append(this.getMain().getTemp());
         sb.append(",\n\"Humidity\":").append(this.getMain().getHumidity());
-        sb.append(",\n\"Wind speed\": ").append(this.getWind().getSpeed()).append("\n}");
+        sb.append(",\n\"Wind speed\":").append(this.getWind().getSpeed()).append("\n}");
         return sb.toString();
     }
 }
