@@ -42,7 +42,7 @@ public class Server {
     }
 
     public static boolean checkFormat(String coordinates) {
-        String regExp = "\\{\"lon\":-?\\d{1,3}.\\d{0,2}, \"lat\":-?\\d{1,2}.\\d{0,2}}";
+        String regExp = "\\{\"lon\":-?\\d{1,3}.\\d{0,6}, \"lat\":-?\\d{1,2}.\\d{0,6}}";
         Matcher matcher = Pattern.compile(regExp).matcher(coordinates);
         return matcher.matches();
     }
