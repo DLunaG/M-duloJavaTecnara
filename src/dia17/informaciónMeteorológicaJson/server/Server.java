@@ -10,8 +10,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Server {
     public static void main(String[] args) {
@@ -25,7 +23,7 @@ public class Server {
             DataOutputStream dos = new DataOutputStream(s.getOutputStream());
 
 
-            if(checkFormat(coordinates)){
+            if(Utils.checkFormat(coordinates)){
                 Coordinates coor = Utils.parseCoordinates(coordinates);
                 OpenweathermapService oc = new OpenweathermapService();
                 OpenweathermapResponse openInfo = oc.getCurrentMeteo(coor);
@@ -40,11 +38,4 @@ public class Server {
             System.out.println("IOException: " + e.toString());
         }
     }
-
-    public static boolean checkFormat(String coordinates) {
-        String regExp = "\\{\"lon\":-?\\d{1,3}.\\d{0,6}, \"lat\":-?\\d{1,2}.\\d{0,6}}";
-        Matcher matcher = Pattern.compile(regExp).matcher(coordinates);
-        return matcher.matches();
-    }
-
 }
