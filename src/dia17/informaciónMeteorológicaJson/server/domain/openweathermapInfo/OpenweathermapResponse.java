@@ -4,6 +4,8 @@ package dia17.informaciónMeteorológicaJson.server.domain.openweathermapInfo;
 //// ( si no, responderá con un mensaje de error), devolverá la información de fecha/hora,
 //// temperatura, si es de día o no y la velocidad del viento.
 
+import dia17.informaciónMeteorológicaJson.client.utils.Utils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,7 +77,7 @@ public class OpenweathermapResponse {
         sb.append(this.getName()).append("\",\n\"Country:\":\"").append(this.getSys().getCountry());
         sb.append("\nMain weather: ").append((this.getWeather().get(0).getMain()));
         sb.append(", ").append(this.getWeather().get(0).getDescription());
-        sb.append("\nTemperature: ").append(this.getMain().getTemp()-273.15f);
+        sb.append("\nTemperature: ").append(Utils.parseKelvinToCelsius(this.getMain().getTemp()-273.15f));
         sb.append("\nHumidity: ").append(this.getMain().getHumidity());
         sb.append("\nWind speed: ").append(this.getWind().getSpeed());
         return sb.toString();
@@ -87,10 +89,12 @@ public class OpenweathermapResponse {
         sb.append(this.getName()).append("\",\n\"Country:\":\"").append(this.getSys().getCountry());
         sb.append("\",\n\"Main weather\":\"").append((this.getWeather().get(0).getMain()));
         sb.append(", ").append(this.getWeather().get(0).getDescription());
-        sb.append("\",\n\"Temperature\":").append(this.getMain().getTemp()-273.15f);
+        sb.append("\",\n\"Temperature\":").append(Utils.parseKelvinToCelsius(this.getMain().getTemp()));
         sb.append(",\n\"Humidity\":").append(this.getMain().getHumidity());
         sb.append(",\n\"Wind speed\":").append(this.getWind().getSpeed()).append("\n}");
         return sb.toString();
     }
+
+
 }
 

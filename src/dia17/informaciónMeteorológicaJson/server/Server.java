@@ -12,30 +12,72 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
-    public static void main(String[] args) {
+    ServerSocket ss;
+    Socket s;
+    DataInputStream din;
+    DataOutputStream dos;
+
+    public Server(){
+
         try {
-            ServerSocket ss = new ServerSocket(3333);
+            this.ss = new ServerSocket(3333);
             System.out.println("Listening to requests...");
-            Socket s = ss.accept();
+            this.s = ss.accept();
             System.out.println("Request heard.");
-            DataInputStream din = new DataInputStream(s.getInputStream());
-            String coordinates = din.readUTF();
-            DataOutputStream dos = new DataOutputStream(s.getOutputStream());
-
-
-            if(Utils.checkFormat(coordinates)){
-                Coordinates coor = Utils.parseCoordinates(coordinates);
-                OpenweathermapService oc = new OpenweathermapService();
-                OpenweathermapResponse openInfo = oc.getCurrentMeteo(coor);
-                dos.writeUTF(openInfo.toMessageInJson());
-
-            }else{
-                dos.writeUTF("El formato de coordenadas es incorrecto.");
-            }
-
-
+            this.din = new DataInputStream(this.s.getInputStream());
+            this.dos = new DataOutputStream(this.s.getOutputStream());
         }catch(IOException e){
             System.out.println("IOException: " + e.toString());
         }
+    }
+
+    public String recieveCoordinates(){
+        try {
+            String coordinates = this.din.readUTF();
+            return coordinates;
+        }catch(IOException e){
+            System.out.println(e.toString());
+        }
+        return null;
+    }
+
+    public String getInfoOfOpenweathermap(String coordinates) {
+        if (Utils.checkFormat(coordinates)) {
+            Coordinates coor = Utils.parseCoordinates(coordinates);
+            OpenweathermapService oc = new OpenweathermapService();
+            OpenweathermapResponse openInfo = oc.getCurrentMeteo(coor);
+            return openInfo.toMessageInJson();
+        } else {
+            return "El formato de coordenadas es incorrecto.";
+        }
+    }
+
+    public void sendOpenweathermapInfo(String info) {
+        try {
+            this.dos.writeUTF(info);
+        } catch (IOException e) {
+            System.out.println(e.toString());
+        }
+    }
+
+    public void close() {
+        try {
+            if (ss != null) {
+                ss.close();
+            }
+            if (s != null) {
+                Socket s;
+            }
+            if (din != null) {
+                din.close();
+            }
+            if (dos != null) {
+                dos.close();
+            }
+            System.out.println("Server has been shut down.");
+        }catch(IOException e){
+            System.out.println(e.toString());
+        }
+
     }
 }

@@ -11,7 +11,7 @@ public class Utils {
         return "{\"lon\":" + coordX + ", \"lat\":" + coordY + "}";
     }
 
-    public enum Coordinate{
+    private enum Coordinate{
         LONGITUDE, LATITUDE
     }
 
@@ -36,12 +36,18 @@ public class Utils {
         return coord;
     }
 
-    public static boolean coordinateChecker(float coordinate, int range) {
+    private static boolean coordinateChecker(float coordinate, int range) {
         if (coordinate >= -range && coordinate <= range) {
             return true;
         } else {
             System.out.println("Coordenada no válida.");
             return false;
         }
+    }
+
+    public static float parseKelvinToCelsius(float kelvinDegrees){
+        float celsius = kelvinDegrees - 273.15f;
+        int celsiusInteger = (int)(celsius * 100);
+        return (float)celsiusInteger/100;
     }
 }
