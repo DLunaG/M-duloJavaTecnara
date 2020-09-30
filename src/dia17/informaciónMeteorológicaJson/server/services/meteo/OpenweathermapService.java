@@ -12,8 +12,17 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class OpenweathermapService {
+public class OpenweathermapService extends Thread {
 
+
+    @Override
+    public void start(){
+        try {
+            Thread.sleep(10000);
+        }catch (InterruptedException ie){
+            System.out.println(ie.getMessage());
+        }
+    }
 
     public OpenweathermapResponse getCurrentMeteo(Coordinates coor) {
 

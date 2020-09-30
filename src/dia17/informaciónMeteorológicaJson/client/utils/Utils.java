@@ -17,10 +17,10 @@ public class Utils {
 
     public static float askingCoordinates(Coordinate coordinateType){
         Scanner sc = new Scanner(System.in);
-
         float coord = -1f;
         int coordinateRank = -1;
         String coordinateName = "error";
+
         if(coordinateType == Coordinate.LONGITUDE) {
             coordinateRank = 180;
             coordinateName = "longitud";

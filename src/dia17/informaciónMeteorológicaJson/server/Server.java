@@ -12,28 +12,27 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
-    ServerSocket ss;
-    Socket s;
-    DataInputStream din;
-    DataOutputStream dos;
+    private ServerSocket ss;
+    private Socket s;
+    private DataInputStream din;
+    private DataOutputStream dos;
 
-    public Server(){
-
+    public Server() {
         try {
             this.ss = new ServerSocket(3333);
-            System.out.println("Listening to requests...");
-            this.s = ss.accept();
-            System.out.println("Request heard.");
-            this.din = new DataInputStream(this.s.getInputStream());
-            this.dos = new DataOutputStream(this.s.getOutputStream());
-        }catch(IOException e){
+
+        } catch (IOException e) {
             System.out.println("IOException: " + e.toString());
         }
     }
 
     public String recieveCoordinates(){
         try {
+            System.out.println("Listening to requests...");
+            this.s = ss.accept();
+            this.din = new DataInputStream(this.s.getInputStream());
             String coordinates = this.din.readUTF();
+            System.out.println("Request heard.");
             return coordinates;
         }catch(IOException e){
             System.out.println(e.toString());
@@ -41,10 +40,16 @@ public class Server {
         return null;
     }
 
-    public String getInfoOfOpenweathermap(String coordinates) {
+    public String getInfoOfOpenweathermapWithCoordinates(String coordinates) {
         if (Utils.checkFormat(coordinates)) {
             Coordinates coor = Utils.parseCoordinates(coordinates);
             OpenweathermapService oc = new OpenweathermapService();
+            oc.start();
+            try {
+                oc.join();
+            }catch(InterruptedException ie){
+                System.out.println(ie.getMessage());
+            }
             OpenweathermapResponse openInfo = oc.getCurrentMeteo(coor);
             return openInfo.toMessageInJson();
         } else {
@@ -52,8 +57,9 @@ public class Server {
         }
     }
 
-    public void sendOpenweathermapInfo(String info) {
+    public void sendOpenweathermapInfoToClient(String info) {
         try {
+            this.dos = new DataOutputStream(this.s.getOutputStream());
             this.dos.writeUTF(info);
         } catch (IOException e) {
             System.out.println(e.toString());

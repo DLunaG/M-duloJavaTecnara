@@ -28,8 +28,8 @@ public class Client {
 
         public void sendCoordinates(String inputCoordinates){
             try {
-                System.out.println(inputCoordinates);
                 dout.writeUTF(inputCoordinates);
+                System.out.println("Coordenadas enviadas.");
             } catch (IOException e) {
                 e.printStackTrace();
             }
