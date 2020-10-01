@@ -10,7 +10,7 @@ public class Main {
         client.sendCoordinates(client.inputCoordinates());
         client2.sendCoordinates(client.inputCoordinates());
         client3.sendCoordinates(client.inputCoordinates());
-        System.out.println("Esperando respuesta cliente 1:");
+        System.out.println("Esperando respuesta...");
         System.out.println(client.recieveResponse());
         System.out.println("Esperando respuesta cliente 2:");
         System.out.println(client2.recieveResponse());
