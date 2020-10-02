@@ -5,3 +5,8 @@ Además, el supermercado tiene un método que es reponer estantes y que dice "re
 Se pide realizar el diagrama de clases del enunciado e implementar las clases definidas.
 En una clase main aparte, instanciar todas las clases y ejecutar abrir para cada una, de manera que veamos su nombre.
 Hay que implementar los constructores de todas las clases y sus getters/setters.
+
+ercicio continuación del de ayer de los negocios:
+Todos los negocios tienen un método que es ratio de facturación por empleado, que devuelve lo que factura por empleado.
+Supermercado y Panadería tienen un método para hornear pan que devuelve un String que dice "Estamos horneando pan"
+Supermercado y Taller tienen un método que es 'hacer propaganda' y devuelve una cadena que dice "Venga a visitar nombre de negocio, es un estupendo negocio"

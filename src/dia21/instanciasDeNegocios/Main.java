@@ -15,8 +15,13 @@ public class Main {
         eroski.abrir();
         eroski.reponerEstante();
 
+
         talleresPeña.abrir();
+        talleresPeña.hacerPropaganda();
+
         petra.abrir();
+        petra.hornearPan();
+
     }
 
 }

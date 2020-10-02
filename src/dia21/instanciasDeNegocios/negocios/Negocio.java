@@ -20,6 +20,10 @@ public class Negocio {
         System.out.println(sb.toString());
     }
 
+    public double ratioDeFacturacionPorEmpleado(){
+        return facturacion/numEmpleados;
+    }
+
 
     public String getNombre() {
         return nombre;

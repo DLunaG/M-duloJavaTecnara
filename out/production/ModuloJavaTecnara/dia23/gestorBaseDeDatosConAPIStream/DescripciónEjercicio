@@ -1,0 +1,16 @@
+Aplicación por consola que va a tener un menu:
+
+1 Añadir usuario
+2 Eliminar usuario
+3 Actualizar usuario
+4 Filtrar usuarios
+4.1 Filtrar por nombre
+4.2 Filtrar por edad
+4.3 Filtrar por salario
+4.4 Filtrar por el salario más elevado
+4.5 Filtrar por la edad mayor
+4.6 Filtrar por rango de edad
+4.7 Filtrar por rango de salario
+
+Diagrama de clases antes de implementar
+en lugar de consultas sql, vamos a utilizar el api stream de java
