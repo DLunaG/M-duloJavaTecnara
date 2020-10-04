@@ -17,7 +17,7 @@ public class DAO {
         try {
             Class.forName("org.postgresql.Driver");
             System.out.println("Clase encontrada.");
-            cn = java.sql.DriverManager.getConnection("jdbc:postgresql://localhost/empresastream", "postgres", "1234");
+            this.cn = java.sql.DriverManager.getConnection("jdbc:postgresql://localhost:5445/empresastream", "postgres", "1234");
         } catch (
                 ClassNotFoundException e) {
             System.out.println("Clase no encontrada.");
@@ -76,10 +76,11 @@ public class DAO {
             StringBuilder sb = new StringBuilder("SELECT * FROM usuario;");
             ResultSet rs = st.executeQuery(sb.toString());
             while(rs.next()){
+                int id = rs.getInt("id");
                 String nombre = rs.getString("nombre");
                 int edad = rs.getInt("edad");
                 double salario = rs.getDouble("salario");
-                Usuario usuario = new Usuario(nombre, edad, salario);
+                Usuario usuario = new Usuario(id, nombre, edad, salario);
                 usuarios.add(usuario);
             }
             st.close();

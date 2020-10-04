@@ -5,8 +5,17 @@ public class Usuario {
     private String nombre;
     private int edad;
     private double salario;
+    private int id;
 
     public Usuario(String nombre, int edad, double salario){
+        this.nombre = nombre;
+        this.edad = edad;
+        this.salario = salario;
+        id = -1;
+    }
+
+    public Usuario(int id, String nombre, int edad, double salario){
+        this.id = id;
         this.nombre = nombre;
         this.edad = edad;
         this.salario = salario;
@@ -16,14 +25,14 @@ public class Usuario {
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("{\"nombre\": \"").append(nombre).append("\", \"edad\": ").append(edad)
-                .append(", \"salario\": ").append(salario).append("}");
+                .append(", \"salario\": ").append(salario).append(", \"id\": ").append(id).append("}");
         return sb.toString();
     }
 
     public String toBeautyString(){
         StringBuilder sb = new StringBuilder();
         sb.append("{\n\"nombre\": \"").append(nombre).append("\", \n\"edad\": ").append(edad)
-                .append(", \n\"salario\": ").append(salario).append("\n}");
+                .append(", \n\"salario\": ").append(salario).append(", \n\"id\": ").append(id).append("\n}");
         return sb.toString();
     }
 

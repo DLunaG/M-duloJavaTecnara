@@ -14,3 +14,7 @@ Aplicación por consola que va a tener un menu:
 
 Diagrama de clases antes de implementar
 en lugar de consultas sql, vamos a utilizar el api stream de java
+
+Se utiliza la version de postgres 12.
+Se usa el driver postgresql-42.2.16
+Tabla de la base de datos: Usuario{"nombre": nombre VARCHAR(30), "edad": edad int, "salario": decimal(8,2)
