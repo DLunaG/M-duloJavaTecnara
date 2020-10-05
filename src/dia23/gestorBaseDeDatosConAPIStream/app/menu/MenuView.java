@@ -1,25 +1,24 @@
-package dia23.gestorBaseDeDatosConAPIStream.app;
+package dia23.gestorBaseDeDatosConAPIStream.app.menu;
 
 import dia23.gestorBaseDeDatosConAPIStream.domain.Usuario;
-import dia23.gestorBaseDeDatosConAPIStream.services.UserService;
+import dia23.gestorBaseDeDatosConAPIStream.services.UserFiltersService;
 
 import java.util.Scanner;
 
-public class Menu {
+public class MenuView {
 
-    private UserService us;
+    private UserFiltersService ufs;
     private Scanner sc;
     private final String INVALID_ANSWER = "Opción errónea. Escriba la opción a la que desea acceder:";
 
 
-    public Menu(){
-        this.us = new UserService();
+    public MenuView(){
+        this.ufs = new UserFiltersService();
         this.sc = new Scanner(System.in);
     }
 
     public int ejecutarMenu(){
-        System.out.println("Bienvenid@ al gestor de la base de datos.\nEscriba la opción a la que desea acceder:");
-
+        System.out.println("Escriba la opción a la que desea acceder:");
         int opcionElegida = -1;
         do {
             System.out.println(submenuPrincipal());
@@ -51,13 +50,13 @@ public class Menu {
             System.out.println(submenuFiltrarUsuario());
             try {
                 opcionElegida = sc.nextInt();
-                if(opcionElegida < 1 || opcionElegida > 7)
+                if(opcionElegida < 1 || opcionElegida > 8)
                     throw new Exception();
             }catch(Exception e){
                 System.out.println(INVALID_ANSWER);
                 sc.next();
             }
-        }while(opcionElegida < 1 || opcionElegida > 7);
+        }while(opcionElegida < 1 || opcionElegida > 8);
 
         return opcionElegida;
     }
@@ -65,7 +64,7 @@ public class Menu {
     private String submenuFiltrarUsuario(){
         StringBuilder sb = new StringBuilder();
         sb.append("1.Filtrar por nombre.\n2.Filtrar por edad.\n3.Filtrar por salario.\n4.Mostrar el usuario con más salario.\n" +
-                "5.Mostrar el usuario con más edad.\n6.Filtrar por rango de edad.\n7.Filtrar por rango de salario.");
+                "5.Mostrar el usuario con más edad.\n6.Filtrar por rango de edad.\n7.Filtrar por rango de salario.\n8.Atrás.");
         return sb.toString();
     }
 
@@ -133,10 +132,10 @@ public class Menu {
 
 
     public void cerrarMenu(){
-        System.out.println("Gracias por utilizar el gestor de la base de datos.\nHasta pronto.");
+        System.out.println("Gracias por utilizar el gestor de usuarios de la base de datos.\nHasta pronto.");
     }
 
-    public UserService getUs() {
-        return us;
+    public UserFiltersService getUfs() {
+        return ufs;
     }
 }

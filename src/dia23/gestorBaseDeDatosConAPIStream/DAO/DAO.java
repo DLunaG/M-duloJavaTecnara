@@ -16,8 +16,8 @@ public class DAO {
     public DAO(){
         try {
             Class.forName("org.postgresql.Driver");
-            System.out.println("Clase encontrada.");
-            this.cn = java.sql.DriverManager.getConnection("jdbc:postgresql://localhost:5445/empresastream", "postgres", "1234");
+            //System.out.println("Clase encontrada.");
+            this.cn = java.sql.DriverManager.getConnection("jdbc:postgresql://localhost/empresastream", "postgres", "1234");
         } catch (
                 ClassNotFoundException e) {
             System.out.println("Clase no encontrada.");
@@ -27,7 +27,7 @@ public class DAO {
         }
     }
 
-    public String annadirUsuario(Usuario usuario){
+    public void annadirUsuario(Usuario usuario){
         try {
             Statement st = cn.createStatement();
             StringBuilder sb = new StringBuilder("INSERT INTO usuario (nombre, edad, salario) VALUES ('");
@@ -39,11 +39,9 @@ public class DAO {
         }catch(SQLException e){
                 System.out.println("Añadir usuario SQLError: " + e.getMessage());
             }
-
-        return "Usuario creado.";
     }
 
-    public String eliminarUsuario(int id){
+    public void eliminarUsuario(int id){
         try {
             Statement st = cn.createStatement();
             StringBuilder sb = new StringBuilder("DELETE FROM usuario WHERE id = '").append(id).append("';");
@@ -52,10 +50,9 @@ public class DAO {
         }catch(SQLException e){
             System.out.println("Eliminar Usuario SQLError: " + e.getMessage());
         }
-        return "Usuario eliminado.";
     }
 
-    public String actualizarUsuario(int id, String nombre, int edad, double salario){
+    public void actualizarUsuario(int id, String nombre, int edad, double salario){
         try{
             Statement st = cn.createStatement();
             StringBuilder sb = new StringBuilder("UPDATE usuario set nombre = '").append(nombre).append("', edad = ")
@@ -65,8 +62,6 @@ public class DAO {
         }catch(SQLException e){
             System.out.println("Actualizar Usuario SQLError: " + e.getMessage());
         }
-
-        return "Usuario actualizado.";
     }
 
     public List<Usuario> seleccionarTodosLosUsuarios(){
