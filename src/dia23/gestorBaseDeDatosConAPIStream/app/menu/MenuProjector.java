@@ -5,14 +5,14 @@ import dia23.gestorBaseDeDatosConAPIStream.services.UserFiltersService;
 
 import java.util.Scanner;
 
-public class MenuView {
+public class MenuProjector {
 
     private UserFiltersService ufs;
     private Scanner sc;
     private final String INVALID_ANSWER = "Opción errónea. Escriba la opción a la que desea acceder:";
 
 
-    public MenuView(){
+    public MenuProjector(){
         this.ufs = new UserFiltersService();
         this.sc = new Scanner(System.in);
     }
